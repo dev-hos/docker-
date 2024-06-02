@@ -19,3 +19,17 @@ sur ce q'on appelle des conteneurs
      
 -- Nommer un conteneur 
 docker run --name apache1 -d -p 8080:80  httpd
+
+-- Docker compose 
+docker compose est un ficher de config yml ou yaml qui détermine les images qu'on souhaite utiliser 
+pour notre projet ainsi que d'autre configurations comme les potrs les volumes 
+
+-- DockerFile
+Le Dockerfile est un fichier de commande qui permet de lancer des commandes, et installer des extensions
+
+    FROM php:8.2-apache (utilisation de l'image 8.2-apache)
+
+    RUN apt-get update && apt-get upgrade -y (commande pour la mise à jour des paquets)
+    RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli pdo_mysql (installation des extension php et de mysql)
+
+    EXPOSE 80 (spécification du port utilisé par le conteneur)
